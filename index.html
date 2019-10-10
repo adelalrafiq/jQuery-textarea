@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea name="twitter" id="twitter" cols="50" rows="7" maxlength="160"></textarea>
+    <div class="counter"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var maxText = $('textarea').attr('maxlength'),
+                counter=$('.counter');
+            counter.html('<span>' + maxText + '</span>');
+            $('textarea').keyup(function(){
+                var textLength = $(this).val().length,
+                    remChars = maxText -textLength;
+            counter.html('<span>' + remChars + '</span>');
+            });
+        });
+    </script>
+</body>
+
+</html>
